@@ -1,0 +1,11 @@
+<div class="products">
+  <div class="products-list" *ngFor="let product of productsApiService.products">
+    <div class="products-list-item">
+      <img src="{{ product.productImage }}" alt="products" width="350" height="350">
+      <div class="products-bottom">
+        <h3>{{ product.name }}</h3>
+        <span>{{ product.price }}$</span>
+      </div>
+    </div>
+  </div>
+</div>

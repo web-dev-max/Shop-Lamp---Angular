@@ -1,0 +1,41 @@
+header {
+  background-color: #ffffff;
+  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.6);
+
+  nav {
+    max-width: 1200px;
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  a {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 400;
+
+    &.active {
+      background-color: rgb(227, 227, 227);
+      position: relative;
+
+      &::before {
+         content: "";
+         position: absolute;
+         width: 15px;
+         height: 15px;
+         background: rgb(227, 227, 227);
+         bottom: -5px;
+         left: 50%;
+         transform: translateX(-50%) rotate(45deg);
+      }
+    }
+  }
+}
