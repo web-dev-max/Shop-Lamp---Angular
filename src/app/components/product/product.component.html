@@ -1,0 +1,27 @@
+<div class="product">
+  <div class="product-action">
+    <img src="{{ product?.productImage }}" width="350" height="350">
+    <div class="product-block">
+      <h1>{{ product?.name }}</h1>
+      <div class="stock">
+        <p>{{ product?.price }}$</p>
+        <span [ngClass]="{'stock': product?.amount}">
+          {{ product?.amount ? 'in stock' : 'out of stock' }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="product-desc">
+    <h2>About this product</h2>
+    <p>{{ product?.info }}</p>
+  </div>
+  <p-inputnumber
+    [(ngModel)]="quantity"
+    mode="decimal"
+    [disabled]="!product?.amount"
+    [showButtons]="true"
+    inputId="minmax-buttons"
+    [min]="0"
+    [max]="product?.amount || 0"
+  />
+</div>

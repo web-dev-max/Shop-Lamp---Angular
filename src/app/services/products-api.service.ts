@@ -34,4 +34,14 @@ export class ProductsApiService {
       })
     )
   }
+
+  getProduct(productId: string): Observable<IProducts> {
+    return this.http.get<IProducts>(`${this.shopApi}/products/${productId}`, {
+    }).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Ошибка при загрузке продукта:', error);
+        return throwError(() => error);
+      })
+    )
+  }
 }

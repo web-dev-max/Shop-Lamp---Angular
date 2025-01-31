@@ -1,0 +1,57 @@
+.product {
+  max-width: 1200px;
+  width: 100%;
+  margin: 40px auto;
+
+  img {
+    object-fit: cover;
+  }
+
+  &-action {
+    display: flex;
+    align-items: center;
+    gap: 90px;
+  }
+
+  &-block {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    h1 {
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
+  .stock {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-transform: uppercase;
+
+    p {
+      font-size: 20px;
+    }
+
+    span {
+      background-color: #adff2f;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
+
+  &-desc {
+    margin-top: 40px;
+
+    h2 {
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-top: 20px;
+      line-height: 25px;
+    }
+  }
+}
