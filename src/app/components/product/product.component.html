@@ -9,19 +9,20 @@
           {{ product?.amount ? 'in stock' : 'out of stock' }}
         </span>
       </div>
+      <p-inputnumber
+        [(ngModel)]="quantity"
+        mode="decimal"
+        [disabled]="!product?.amount"
+        [showButtons]="true"
+        inputId="minmax-buttons"
+        [min]="1"
+        [max]="product?.amount || 0"
+      />
+      <p>Product quantities: {{ product?.amount }}</p>
     </div>
   </div>
   <div class="product-desc">
     <h2>About this product</h2>
     <p>{{ product?.info }}</p>
   </div>
-  <p-inputnumber
-    [(ngModel)]="quantity"
-    mode="decimal"
-    [disabled]="!product?.amount"
-    [showButtons]="true"
-    inputId="minmax-buttons"
-    [min]="0"
-    [max]="product?.amount || 0"
-  />
 </div>

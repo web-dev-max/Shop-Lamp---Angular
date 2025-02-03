@@ -3,10 +3,10 @@ import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { FormsModule } from '@angular/forms';
 
 import { ProductsApiService } from '../../services/products-api.service';
 import { IProducts } from '../../models/products';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
@@ -19,12 +19,21 @@ export class ProductComponent implements OnInit, OnDestroy {
   private productId: string | null = null;
   private productSubscription: Subscription | null = null;
   public product: IProducts | null = null;
-  public quantity: number = 0;
+  public quantity: number = 1;
 
   constructor(
     private route: ActivatedRoute,
     public productsApiService: ProductsApiService
   ) {}
+
+  private updateQuantity(amount: number | null): void {
+    const safeAmount = amount ?? 0;
+    if (safeAmount > 0) {
+      this.quantity = Math.min(this.quantity, safeAmount);
+    } else {
+      this.quantity = 0;
+    }
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -32,6 +41,7 @@ export class ProductComponent implements OnInit, OnDestroy {
       if (this.productId) {
         this.productSubscription = this.productsApiService.getProduct(this.productId).subscribe(product => {
           this.product = product;
+          this.updateQuantity(product.amount);
         });
       }
     });

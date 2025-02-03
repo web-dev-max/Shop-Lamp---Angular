@@ -1,5 +1,6 @@
 <header>
   <nav>
-    <a routerLink="/" routerLinkActive="active">Starter Store</a>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Starter Store</a>
+    <a routerLink="/cart" routerLinkActive="active">Cart</a>
   </nav>
 </header>
