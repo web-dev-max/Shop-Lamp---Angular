@@ -1,28 +1,36 @@
 <div class="product">
   <div class="product-action">
-    <img src="{{ product?.productImage }}" width="350" height="350">
+    <img src="{{ productsApiService.currentProduct?.productImage }}" width="350" height="350">
     <div class="product-block">
-      <h1>{{ product?.name }}</h1>
+      <h1>{{ productsApiService.currentProduct?.name }}</h1>
       <div class="stock">
-        <p>{{ product?.price }}$</p>
-        <span [ngClass]="{'stock': product?.amount}">
-          {{ product?.amount ? 'in stock' : 'out of stock' }}
+        <p>{{ productsApiService.currentProduct?.price }}$</p>
+        <span [ngClass]="{'stock': productsApiService.currentProduct?.amount}">
+          {{ productsApiService.currentProduct?.amount ? 'in stock' : 'out of stock' }}
         </span>
       </div>
-      <p-inputnumber
-        [(ngModel)]="quantity"
-        mode="decimal"
-        [disabled]="!product?.amount"
-        [showButtons]="true"
-        inputId="minmax-buttons"
-        [min]="1"
-        [max]="product?.amount || 0"
-      />
-      <p>Product quantities: {{ product?.amount }}</p>
+      <p-inputgroup>
+        <p-inputnumber
+          [(ngModel)]="quantity"
+          mode="decimal"
+          [disabled]="!productsApiService.currentProduct?.amount"
+          [showButtons]="true"
+          inputId="minmax-buttons"
+          [min]="1"
+          [max]="productsApiService.currentProduct?.amount || 0"
+        />
+        <p-button
+          class="add-cart"
+          label="Add To Cart"
+          (click)="AddToCart()"
+          disabled="{{ !quantity }}"
+        />
+      </p-inputgroup>
+      <p>Product quantities: {{ productsApiService.currentProduct?.amount }}</p>
     </div>
   </div>
   <div class="product-desc">
     <h2>About this product</h2>
-    <p>{{ product?.info }}</p>
+    <p>{{ productsApiService.currentProduct?.info }}</p>
   </div>
 </div>

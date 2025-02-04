@@ -16,6 +16,7 @@ export class ProductsApiService {
 
   shopApi: string = 'http://localhost:3001';
   products: IProducts[] = [];
+  currentProduct: IProducts | null = null;
 
   isPending: boolean = false;
 
@@ -38,6 +39,9 @@ export class ProductsApiService {
   getProduct(productId: string): Observable<IProducts> {
     return this.http.get<IProducts>(`${this.shopApi}/products/${productId}`, {
     }).pipe(
+      tap((data) => {
+        this.currentProduct = data;
+      }),
       catchError((error: HttpErrorResponse) => {
         console.error('Ошибка при загрузке продукта:', error);
         return throwError(() => error);
