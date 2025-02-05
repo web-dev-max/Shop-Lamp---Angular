@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import {ICart, ICartWithProductInfo} from '../models/cart';
-import { LocalStorageService } from './local-storage.service';
+import { LocalStorageService } from './local-storage/local-storage.service';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

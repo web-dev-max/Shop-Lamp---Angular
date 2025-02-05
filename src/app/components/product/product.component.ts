@@ -27,7 +27,7 @@ import { CartApiService } from '../../services/cart-api.service';
 export class ProductComponent implements OnInit, OnDestroy {
   private productId: string | null = null;
   private productSubscription: Subscription | null = null;
-  public quantity: number = 1;
+  public quantity: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,11 +35,9 @@ export class ProductComponent implements OnInit, OnDestroy {
     private cartApiService: CartApiService,
   ) {}
 
-  private updateQuantity(amount: number): void {
+  private updateQuantity(amount: number) {
     if (amount > 0) {
       this.quantity = Math.min(this.quantity, amount);
-    } else {
-      this.quantity = 0;
     }
   }
 
@@ -48,8 +46,7 @@ export class ProductComponent implements OnInit, OnDestroy {
       this.productId = params.get('productId');
       if (this.productId) {
         this.productSubscription = this.productsApiService.getProduct(this.productId).subscribe();
-        const amount = this.productsApiService.currentProduct?.amount ?? 0
-        this.updateQuantity(amount);
+        this.updateQuantity(this.productsApiService.currentProduct?.amount ?? 0);
       }
     });
   }
@@ -60,7 +57,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     }
   }
 
-  public AddToCart(): void {
+  public AddToCart() {
     const currentProduct = this.productsApiService.currentProduct;
     if (currentProduct) {
       this.cartApiService.AddToCart({

@@ -1,7 +1,10 @@
 <header>
   <nav>
     <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Starter Store</a>
-    <a routerLink="/cart" routerLinkActive="active">Cart</a>
-    <a routerLink="/auth" routerLinkActive="active">Login</a>
+    <div class="header-children">
+      <a routerLink="/cart" routerLinkActive="active">Cart</a>
+      <a routerLink="/auth" routerLinkActive="active">Sign Up</a>
+      <button *ngIf="authUser">Get Out</button>
+    </div>
   </nav>
 </header>

@@ -1,17 +1,21 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
   <div class="form-wrapper">
     <div *ngIf="!isLoginMode">
-      <label for="name">Имя:</label>
-      <input id="name" type="text" formControlName="name">
+      <p-floatLabel variant="on">
+        <input id="name" type="text" pInputText formControlName="name" />
+        <label for="name">Name</label>
+      </p-floatLabel>
       <div *ngIf="userForm.get('name')?.invalid && (userForm.get('name')?.dirty || userForm.get('name')?.touched)" class="error">
         <small *ngIf="userForm.get('name')?.errors?.['required']">Имя обязательно</small>
-        <small *ngIf="userForm.get('name')?.errors?.['minlength']">Имя не должно быть пустым</small>
+        <small *ngIf="userForm.get('name')?.errors?.['minlength']">Минимум 2 символа</small>
       </div>
     </div>
 
     <div>
-      <label for="email">Email:</label>
-      <input id="email" type="email" formControlName="email">
+      <p-floatLabel variant="on">
+        <input id="email" type="text" pInputText formControlName="email" />
+        <label for="email">Email</label>
+      </p-floatLabel>
       <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)" class="error">
         <small *ngIf="userForm.get('email')?.errors?.['required']">Email обязателен</small>
         <small *ngIf="userForm.get('email')?.errors?.['email']">Некорректный email</small>
@@ -19,8 +23,11 @@
     </div>
 
     <div>
-      <label for="password">Пароль:</label>
-      <input id="password" type="password" formControlName="password" autocomplete>
+      <p-floatlabel variant="on">
+        <p-password formControlName="password" id="password" [toggleMask]="true" [feedback]="false" autocomplete/>
+        <label for="password">Password</label>
+      </p-floatlabel>
+
       <div *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.dirty || userForm.get('password')?.touched)" class="error">
         <small *ngIf="userForm.get('password')?.errors?.['required']">Пароль обязателен</small>
         <small *ngIf="userForm.get('password')?.errors?.['minlength']">Минимум 6 символов</small>

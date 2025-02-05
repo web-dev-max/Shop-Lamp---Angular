@@ -39,3 +39,14 @@ header {
     }
   }
 }
+
+.header-children {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  a {
+    width: 100px;
+  }
+}
