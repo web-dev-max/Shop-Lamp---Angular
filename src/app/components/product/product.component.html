@@ -1,6 +1,6 @@
 <div class="product">
   <div class="product-action">
-    <img src="{{ productsApiService.currentProduct?.productImage }}" width="350" height="350">
+    <img src="{{ productsApiService.currentProduct?.image }}" width="350" height="350">
     <div class="product-block">
       <h1>{{ productsApiService.currentProduct?.name }}</h1>
       <div class="stock">
@@ -31,6 +31,6 @@
   </div>
   <div class="product-desc">
     <h2>About this product</h2>
-    <p>{{ productsApiService.currentProduct?.info }}</p>
+    <p>{{ productsApiService.currentProduct?.description }}</p>
   </div>
 </div>

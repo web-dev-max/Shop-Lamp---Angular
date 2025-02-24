@@ -7,6 +7,6 @@ export interface ICart {
 export interface ICartWithProductInfo extends ICart {
   name: string;
   info: string;
-  productImage: string;
+  image: string;
   amount: number | null;
 }

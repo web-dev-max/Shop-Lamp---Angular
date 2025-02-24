@@ -10,7 +10,7 @@ import { LocalStorageService } from './local-storage/local-storage.service';
   providedIn: 'root'
 })
 export class UserApiService {
-  shopApi: string = 'http://localhost:3001';
+  shopApi: string = 'http://localhost:3377';
 
   constructor(
     private http: HttpClient,

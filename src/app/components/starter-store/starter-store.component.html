@@ -1,9 +1,9 @@
 <div class="products">
   <div class="products-list"
        *ngFor="let product of productsApiService.products"
-       (click)="handleClickProduct(product._id)"
+       (click)="handleClickProduct(product.id)"
   >
-      <img src="{{ product.productImage }}" alt="products" width="350" height="350">
+      <img src="{{ product.image }}" alt="products" width="350" height="350">
       <div class="products-bottom">
         <h3>{{ product.name }}</h3>
         <span>{{ product.price }}$</span>

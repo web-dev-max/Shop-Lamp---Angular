@@ -65,8 +65,8 @@ export class ProductComponent implements OnInit, OnDestroy {
         quantity: this.quantity,
         price: currentProduct.price,
         name: currentProduct.name,
-        info: currentProduct.info,
-        productImage: currentProduct.productImage,
+        info: currentProduct.description,
+        image: currentProduct.image,
         amount: currentProduct.amount,
       });
     }

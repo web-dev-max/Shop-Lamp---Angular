@@ -14,7 +14,7 @@ import { IProducts } from '../models/products';
 export class ProductsApiService {
   constructor(private http: HttpClient) {}
 
-  shopApi: string = 'http://localhost:3001';
+  shopApi: string = 'http://localhost:3377/api';
   products: IProducts[] = [];
   currentProduct: IProducts | null = null;
 

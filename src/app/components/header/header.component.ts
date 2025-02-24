@@ -15,9 +15,9 @@ export class HeaderComponent {
   public authUser = false;
   constructor(private localStorageService: LocalStorageService) {
     const token = this.localStorageService.getLocalStorage('token');
-    if (token && token.trim()) {
-      this.authUser = true;
-      console.log(this.authUser);
-    }
+    // if (token && token.trim()) {
+    //   this.authUser = true;
+    //   console.log(this.authUser);
+    // }
   }
 }
