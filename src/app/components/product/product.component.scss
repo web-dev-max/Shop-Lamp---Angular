@@ -4,7 +4,7 @@
   margin: 40px auto;
 
   img {
-    object-fit: cover;
+    object-fit: contain;
   }
 
   &-action {
@@ -60,4 +60,9 @@
   .p-ripple {
     border-radius: 0;
   }
+}
+
+p-inputgroup {
+  width: 100%;
+  max-width: 320px;
 }
